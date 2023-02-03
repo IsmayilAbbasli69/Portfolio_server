@@ -70,7 +70,7 @@ app.post('/api/data', async (req,res)=>{
 
 
 
-app.post('/login', async (req,res)=>{ 
+app.post('/api/login', async (req,res)=>{ 
   console.log(req.body)
 
 
@@ -89,7 +89,7 @@ password:user.password,
   }else{
     res.json({status:'error',user:false})
   }
-  console.log("MEssage")
+  res.sendFile("HEllo")
   })
 
 
