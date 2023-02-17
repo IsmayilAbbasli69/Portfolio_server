@@ -1,5 +1,4 @@
 
-
 const express=require('express');
 const serverless=require('serverless-http')
 const app=express();
@@ -55,9 +54,25 @@ app.post('/api/create', async (req,res)=>{
 
 
 app.post('/api/get_blog',async (req,res)=>{
-  const data=await Blog.find({});
+ 
+  const data=await Blog.find({})
   return res.json({data:data})
 })
+
+
+app.post('/api/get_specific_blog',async (req,res)=>{
+ 
+  const data=await Blog.findOne({title:req.body.title})
+  return res.json({data:data,id:data})
+})
+
+
+
+app.post('/api/:_id',async (req,res)=>{
+  const data=await Blog.findById(req.params._id)
+  return res.json({data:data})
+})
+
 
 
 
