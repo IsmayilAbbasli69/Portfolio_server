@@ -68,7 +68,7 @@ app.post('/api/get_specific_blog',async (req,res)=>{
 
 
 
-app.post('/api/:_id',async (req,res)=>{
+app.post('/home/:_id',async (req,res)=>{
   const data=await Blog.findById(req.params._id)
   return res.json({data:data})
 })
